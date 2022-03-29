@@ -3,18 +3,25 @@ import PropTypes from 'prop-types';
 import PhBookContext from './PhBookContext';
 import LINKS from '../helpers/fetchURL';
 
-const testData = [{
-  name: 'Jao',
-  email: 'emailzao',
-  image: 'imagem',
-  phoneNumbers: [123, 456]
-}]
+// const testData = [{
+//   name: 'Jao',
+//   email: 'emailzao',
+//   image: 'imagem',
+//   phoneNumbers: [123, 456]
+// },{
+//   name: 'maria',
+//   email: 'emailzin',
+//   image: 'imagem',
+//   phoneNumbers: [123, 456]
+// }]
 
 function Provider({ children }) {
   const [data, setData] = useState([]);
   const [editData, setEditData] = useState([]);
   const [editing, setEditing] = useState(false);
   const [newData, setNewData] = useState({});
+  const [query, setQuery] = useState('');
+  const [filteredData, setFilteredData] = useState([]);
 
   useEffect(() => {
     async function getData() {
@@ -36,7 +43,11 @@ function Provider({ children }) {
         editing,
         setEditing,
         newData,
-        setNewData
+        setNewData,
+        filteredData,
+        setFilteredData,
+        query,
+        setQuery
       }}
     >
       {children}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -10,8 +10,9 @@ import AddIcon from '@mui/icons-material/AddCircleRounded';
 import SearchIcon from '@mui/icons-material/Search';
 import { Dialog, DialogContent } from '@mui/material';
 import InputSection from './InputSection';
+import PhBookContext from '../context/PhBookContext';
 
-const Search = styled('div')(({ theme }) => ({
+const SearchTopBar = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
@@ -36,11 +37,10 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
   justifyContent: 'center',
 }));
 
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
+const StyledSearchInput = styled(InputBase)(({ theme }) => ({
   color: 'inherit',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create('width'),
     width: '100%',
@@ -54,6 +54,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function Header() {
+  const { query, setQuery } = useContext(PhBookContext);
+  
   const [openInput, setOpenInput] = useState(false);
 
   const handleClickOpen = () => {
@@ -63,7 +65,6 @@ export default function Header() {
   const handleClose = () => {
     setOpenInput(false);
   };
-
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -92,17 +93,19 @@ export default function Header() {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            MUI
+            Contacts
           </Typography>
-          <Search>
+          <SearchTopBar>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
-            <StyledInputBase
+            <StyledSearchInput
               placeholder="Search…"
+              value={query}
+              onChange={ (event) => setQuery(event.target.value) }
               inputProps={{ 'aria-label': 'search' }}
             />
-          </Search>
+          </SearchTopBar>
         </Toolbar>
       </AppBar>
     </Box>

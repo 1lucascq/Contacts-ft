@@ -8,7 +8,6 @@ import SaveButton from './SaveButton';
 
 export default function EditInputSection() {
   const { editData } = useContext(PhBookContext);
-  console.log('EditInputSection')
   const { name, email, image, id } = editData;
   const phone = editData.phoneNumbers[0];
   const [editName, setEditName] = useState(name);
