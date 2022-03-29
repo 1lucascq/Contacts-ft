@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { FormControl, Grid } from '@mui/material';
 import InputField from './InputField';
-import SnackBarButton from './SendButton';
+import SaveButton from './SaveButton';
 
 export default function InputSection() {
   const [name, setName] = useState('');
@@ -21,7 +21,7 @@ export default function InputSection() {
           <InputField value={email} fieldName="Email" setValue={setEmail} />
           <InputField value={image} fieldName="Image" setValue={setImage} />
           <InputField value={phone} fieldName="Phone" setValue={setPhone} />
-          <SnackBarButton newContact={ newContact } />
+          <SaveButton newContact={ newContact } />
         </FormControl>
       </Grid>
     </div>

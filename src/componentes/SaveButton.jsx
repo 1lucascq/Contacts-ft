@@ -19,7 +19,7 @@ const style = {
   p: 4,
 };
 
-export default function SendButton({ newContact, id }) {
+export default function SaveButton(newContact, id) {
   const { editing, setEditing } = useContext(PhBookContext);
   const [open, setOpen] = useState(false);
   const [resMessage, setResMessage] = useState('');
@@ -48,7 +48,7 @@ export default function SendButton({ newContact, id }) {
   return (
     <Stack spacing={2} sx={{ width: '100%' }}>
       <Button variant="outlined" onClick={handleClick} sx={{ marginTop: 2 }}>
-        Send 
+        Save 
       </Button>
       <Modal
         open={open}

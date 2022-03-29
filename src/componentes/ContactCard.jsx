@@ -1,22 +1,22 @@
 // Card de cada contato.
-import { Avatar, Card, CardContent, CardMedia, Grid, IconButton, Stack, Typography } from '@mui/material';
+import { Card, CardContent, CardMedia, Grid, IconButton, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useContext } from 'react';
 import PhBookContext from '../context/PhBookContext';
-import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { deleteContact } from '../helpers/manageData';
+import EditDataButton from './EditDataButton';
 
 
 export default function ContactCard() {
   const { data, setData, setEditData, setEditing } = useContext(PhBookContext);
   
-  function editBtn(id) {
+  function handleEditBtn(id) {
     const contact = data.find((cont) => cont.id === id);
     setEditData(contact);
     setEditing(true);
   }
-  
+
   async function deleteBtn(id) {
     await deleteContact(id)
     const newData = data.filter((contact) => contact.id !== id);
@@ -25,9 +25,9 @@ export default function ContactCard() {
   
   return (
     <Grid container direction="column" alignItems="center" justifyContent="center">
-    {data.map(({ id, name, email, image, phoneNumbers }) => (
+    {data.map(({ id, name, email, image, phoneNumbers }, i) => (
 
-    <Card sx={{ display: 'flex' }}>
+    <Card key={i} sx={{ display: 'flex', margin: '0.2em', marginLeft: '1.2em', borderRadius: 5 }}>
       <CardMedia
         component="img"
         sx={{ width: 151 }}
@@ -36,16 +36,16 @@ export default function ContactCard() {
       />
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         
-        <CardContent sx={{ flex: '1 0 auto', minWidth: '14em', maxWidth: '14em', minHeight: '9.3em' }}>
+        <CardContent sx={{ flex: '1 0 auto', width: '13em', height: '9.3em' }}>
           <Typography component="div" variant="h5">
             {name}
           </Typography>
           <Typography variant="subtitle2" color="text.secondary" component="div" noWrap>
             {email}
           </Typography>
-          {phoneNumbers.map(n => {
+          {phoneNumbers.map((n, i) => {
               return (
-                <Typography variant="subtitle2" color="text.secondary" component="div">
+                <Typography variant="subtitle2" color="text.secondary" component="div" key={name + i}>
                 {n}
                 </Typography>
                 )
@@ -58,8 +58,8 @@ export default function ContactCard() {
           <IconButton aria-label="delete" id={id} onClick={({ target }) => deleteBtn(id)} >
             <DeleteIcon />
           </IconButton>
-          <IconButton aria-label="edit" id={id} onClick={({ target }) => editBtn(id)} >
-            <EditIcon />
+          <IconButton aria-label="edit" id={id} onClick={({ target }) => handleEditBtn(id)} >
+            <EditDataButton />
           </IconButton>
         </Box>
       </Box>
