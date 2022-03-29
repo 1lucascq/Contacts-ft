@@ -8,13 +8,13 @@ import EditInputSection from './EditInputSection';
 
 export default function EditDataButton() {
   const [open, setOpen] = useState(false);
-  const { data, setEditData, setEditing } = useContext(PhBookContext);
+  // const { data, setEditData, setEditing } = useContext(PhBookContext);
 
-  function editBtn(id) {
-    const contact = data.find((cont) => cont.id === id);
-    setEditData(contact);
-    setEditing(true);
-  }
+  // function editBtn(id) {
+  //   const contact = data.find((cont) => cont.id === id);
+  //   setEditData(contact);
+  //   setEditing(true);
+  // }
 
   const handleClickOpen = () => {
     setOpen(true);

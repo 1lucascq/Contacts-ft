@@ -16,7 +16,8 @@ function Provider({ children }) {
       setData(fetchData);
     }
     getData();
-  }, []);
+    console.log('fez o fet')
+  }, [newData]);
 
   return (
     <PhBookContext.Provider

@@ -8,10 +8,8 @@ import SaveButton from './SaveButton';
 
 export default function EditInputSection() {
   const { editData, data } = useContext(PhBookContext);
-  
-  const { name, email, image } = editData;
+  const { name, email, image, id } = editData;
   const phone = editData.phoneNumbers[0];
-  const { id } = data.find((cont) => cont.name.toLowerCase() === name.toLowerCase());
   const [editName, setEditName] = useState(name);
   const [editEmail, setEditEmail] = useState(email);
   const [editImage, setEditImage] = useState(image);
