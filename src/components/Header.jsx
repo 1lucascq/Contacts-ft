@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -6,8 +6,10 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
-import MenuIcon from '@mui/icons-material/Menu';
+import AddIcon from '@mui/icons-material/AddCircleRounded';
 import SearchIcon from '@mui/icons-material/Search';
+import { Dialog, DialogContent } from '@mui/material';
+import InputSection from './InputSection';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -51,7 +53,18 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function SearchAppBar() {
+export default function Header() {
+  const [openInput, setOpenInput] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpenInput(true);
+  };
+
+  const handleClose = () => {
+    setOpenInput(false);
+  };
+
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="sticky">
@@ -60,11 +73,19 @@ export default function SearchAppBar() {
             size="large"
             edge="start"
             color="inherit"
-            aria-label="open drawer"
+            aria-label="openInput drawer"
             sx={{ mr: 2 }}
+            onClick={handleClickOpen}
           >
-            <MenuIcon />
+            <AddIcon />
           </IconButton>
+
+          <Dialog open={openInput} onClose={handleClose}>
+            <DialogContent>
+            <InputSection />
+            </DialogContent>
+          </Dialog>
+
           <Typography
             variant="h6"
             noWrap

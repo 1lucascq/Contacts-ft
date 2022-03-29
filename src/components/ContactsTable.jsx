@@ -2,13 +2,12 @@
 import { Grid } from '@mui/material';
 import React, { useEffect, useContext } from 'react';
 import PhBookContext from '../context/PhBookContext';
-import ContactsData from './ContactsData';
+import ContactCard from './ContactCard';
 
 function ContactsTable() {
   const { newData, setNewData } = useContext(PhBookContext);
 
   useEffect(() => {
-    console.log('useEffect')
     if (newData.shouldRender === true) setNewData({ shouldRender: false });
   }, [newData, setNewData]);
   
@@ -21,7 +20,7 @@ function ContactsTable() {
       justifyContent="center"
       style={{ marginTop: "2em" }}
     >
-      <ContactsData />
+      <ContactCard />
 
     </Grid>
   );

@@ -80,27 +80,3 @@ export default function SaveButton(newContact, id) {
     </Stack>
   );
 }
-
-
-// return (
-//   <Stack spacing={2} sx={{ width: '100%' }}>
-//     <Button variant="outlined" onClick={handleClick} sx={{ marginTop: 2 }}>
-//       Save 
-//     </Button>
-//     <Modal
-//       open={open}
-//       onClose={handleClose}
-//       aria-labelledby="modal-modal-title"
-//       aria-describedby="modal-modal-description"
-//     >
-//       <Box sx={style}>
-//         <Typography id="modal-modal-description" sx={{ mt: 0, textAlign: "center" }}>
-//           {resMessage}
-//         </Typography>
-//       </Box>
-//     </Modal>
-
-
-//   </Stack>
-// );
-// }
