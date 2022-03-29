@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { BrowserRouter } from 'react-router-dom';
+// import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import PhBookProvider from './context/PhBookProvider';
 
 ReactDOM.render(
   <PhBookProvider>
-    <BrowserRouter>
+    {/* <BrowserRouter> */}
       <React.StrictMode>
         <App />
       </React.StrictMode>
-    </BrowserRouter>
+    {/* </BrowserRouter> */}
   </PhBookProvider>,
 
   document.getElementById('root')

@@ -1,4 +1,4 @@
-import LINKS from "./LinksObj";
+import LINKS from "./fetchURL";
 
 async function addContact (newContact) {
   const { name, email, image, phone } = newContact;

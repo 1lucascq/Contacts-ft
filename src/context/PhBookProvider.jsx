@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import PhBookContext from './PhBookContext';
-import LINKS from '../helpers/LinksObj';
+import LINKS from '../helpers/fetchURL';
 
 function Provider({ children }) {
   const [data, setData] = useState([]);

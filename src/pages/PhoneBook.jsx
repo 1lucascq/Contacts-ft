@@ -10,15 +10,10 @@ function Phonebook() {
   const { editing } = useContext(PhBookContext);
   return (
     <main className="main-content">
-
-
-      <Typography variant="h2" gutterBottom sx={{ textAlign: "center", marginTop: 3 }}>
-        NEW
-      </Typography>
       
       {editing ? <EditInputSection /> : <InputSection />}
 
-      <Typography variant="h2" gutterBottom sx={{ textAlign: "center", marginTop: 3 }}>
+      <Typography variant="h4" gutterBottom sx={{ textAlign: "center", marginTop: 3 }}>
         CONTACTS
       </Typography>
 
