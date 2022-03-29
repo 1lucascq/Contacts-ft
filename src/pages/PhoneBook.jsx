@@ -1,6 +1,6 @@
 import React from 'react';
-import ContactsTable from '../componentes/ContactsTable';
-import InputSection from '../componentes/InputSection';
+import ContactsTable from '../components/ContactsTable';
+import InputSection from '../components/InputSection';
 import '../App.css';
 import { Typography } from '@mui/material';
 

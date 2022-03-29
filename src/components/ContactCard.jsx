@@ -4,7 +4,7 @@ import { Box } from '@mui/system';
 import React, { useContext } from 'react';
 import PhBookContext from '../context/PhBookContext';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { deleteContact } from '../helpers/manageData';
+import { deleteContact } from '../helpers/fetchFunctions';
 import EditDataButton from './EditDataButton';
 
 

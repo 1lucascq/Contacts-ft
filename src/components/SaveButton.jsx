@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import PhBookContext from '../context/PhBookContext';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import { addContact, editContact } from '../helpers/manageData';
+import { addContact, editContact } from '../helpers/fetchFunctions';
 import { Modal, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 

@@ -1,14 +1,25 @@
 import LINKS from "./fetchURL";
 
-async function addContact (newContact) {
+function createPhoneNumbers(phone) {
+  if (typeof +phone === 'number' ) return [phone];
+
+  const phonesArray = phone.split(',');
+  const phoneNumbers = phonesArray.map(phoneItem => phoneItem = Number(phoneItem.replace(/\s/g, '')));
+  return phoneNumbers;
+}
+
+async function addContact ({newContact}) {
   const { name, email, image, phone } = newContact;
+  console.log('NEWCONTATO É:', newContact)
+  console.log(phone)
   
+  const phoneNumbers = createPhoneNumbers(phone);
   const headers = { "Content-Type" : "application/json; charset=UTF-8" };
   
   const options = {
     headers,
     method: 'POST',
-    body: JSON.stringify({ name, email, image, phone }),
+    body: JSON.stringify({ name, email, image, phoneNumbers }),
   };
   const result = await fetch(LINKS.API_URL, options);
   const data = await result.json();
@@ -16,15 +27,19 @@ async function addContact (newContact) {
   return data;
 }
 
-async function editContact (editedContact, id) {
-  const { edName: name, edEmail: email, edImage: image, edPhone: phone } = editedContact;
-  
+async function editContact ({ newContact }, id) {
+  const { editName: name, editEmail: email, editImage: image, editPhone: phone } = newContact;
+  const phoneNumbers = createPhoneNumbers(phone)
   const headers = { "Content-Type" : "application/json; charset=UTF-8" };
+  console.log('EDITANDO O CONTATO: ', newContact)
+  console.log(phone)
+  console.log(phoneNumbers)
+
   
   const options = {
     headers,
     method: 'PUT',
-    body: JSON.stringify({ name, email, image, phone }),
+    body: JSON.stringify({ name, email, image, phoneNumbers }),
   };
   const result = await fetch(`${LINKS.API_URL}${id}`, options);
   const data = await result.json();
