@@ -47,7 +47,6 @@ async function deleteContact (id) {
   const result = await fetch(`${LINKS.API_URL}${id}`, options);
   const data = await result.json();
 
-  console.log(data)
   return data;
 }
 
