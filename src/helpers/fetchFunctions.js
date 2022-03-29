@@ -10,9 +10,6 @@ function createPhoneNumbers(phone) {
 
 async function addContact ({newContact}) {
   const { name, email, image, phone } = newContact;
-  console.log('NEWCONTATO É:', newContact)
-  console.log(phone)
-  
   const phoneNumbers = createPhoneNumbers(phone);
   const headers = { "Content-Type" : "application/json; charset=UTF-8" };
   
@@ -27,14 +24,10 @@ async function addContact ({newContact}) {
   return data;
 }
 
-async function editContact ({ newContact }, id) {
+async function editContact ({ newContact, id }) {
   const { editName: name, editEmail: email, editImage: image, editPhone: phone } = newContact;
   const phoneNumbers = createPhoneNumbers(phone)
   const headers = { "Content-Type" : "application/json; charset=UTF-8" };
-  console.log('EDITANDO O CONTATO: ', newContact)
-  console.log(phone)
-  console.log(phoneNumbers)
-
   
   const options = {
     headers,

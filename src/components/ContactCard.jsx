@@ -32,7 +32,7 @@ export default function ContactCard() {
         component="img"
         sx={{ width: 151 }}
         image={image}
-        alt="Live from space album cover"
+        alt={`${name} profile picture`}
       />
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         

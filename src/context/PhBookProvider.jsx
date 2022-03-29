@@ -7,6 +7,7 @@ function Provider({ children }) {
   const [data, setData] = useState([]);
   const [editData, setEditData] = useState([]);
   const [editing, setEditing] = useState(false);
+  const [newData, setNewData] = useState({});
 
   useEffect(() => {
     async function getData() {
@@ -25,7 +26,9 @@ function Provider({ children }) {
         editData,
         setEditData,
         editing,
-        setEditing
+        setEditing,
+        newData,
+        setNewData
       }}
     >
       {children}

@@ -17,17 +17,15 @@ export default function EditInputSection() {
   const [editImage, setEditImage] = useState(image);
   const [editPhone, setEditPhone] = useState(phone);
   
-  console.log('EIS - editName', editName);
-
   const newContact = { editName, editEmail, editImage, editPhone }
   return (
     <div>
       <Grid container direction="column" alignItems="center" justifyContent="center">
         <FormControl>
-          <InputField value={editName} fieldName="Name" setValue={setEditName} />
-          <InputField value={editEmail} fieldName="Email" setValue={setEditEmail} />
-          <InputField value={editImage} fieldName="Image" setValue={setEditImage} />
-          <InputField value={editPhone} fieldName="Phone" setValue={setEditPhone} />
+          <InputField value={(editName).toString()} fieldName="Name" setValue={setEditName} />
+          <InputField value={(editEmail).toString()} fieldName="Email" setValue={setEditEmail} />
+          <InputField value={(editImage).toString()} fieldName="Image" setValue={setEditImage} />
+          <InputField value={(editPhone).toString()} fieldName="Phone" setValue={setEditPhone} />
           <SaveButton newContact={ newContact } id={ id } />
         </FormControl>
       </Grid>

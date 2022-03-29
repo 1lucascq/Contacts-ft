@@ -1,9 +1,17 @@
 // Tabela que recebe o ContactsData.jsx para formar a tabela.
 import { Grid } from '@mui/material';
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
+import PhBookContext from '../context/PhBookContext';
 import ContactsData from './ContactsData';
 
 function ContactsTable() {
+  const { newData, setNewData } = useContext(PhBookContext);
+
+  useEffect(() => {
+    console.log('useEffect')
+    if (newData.shouldRender === true) setNewData({ shouldRender: false });
+  }, [newData, setNewData]);
+  
   return (
     <Grid
       container
@@ -11,7 +19,7 @@ function ContactsTable() {
       direction="column"
       alignItems="center"
       justifyContent="center"
-      style={{ minHeight: '100vh', minWidht: '80vw', marginTop: "2em" }}
+      style={{ marginTop: "2em" }}
     >
       <ContactsData />
 
