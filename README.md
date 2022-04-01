@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# Sumário
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- [Sobre o Projeto](#sobre-o-projeto)
+- [Objetivos](#objetivos)
+  - [1 - Header](#1---header)
+  - [2 - Barra de buscas](#2---barra-de-buscas)
+  - [3 - Adição de novo contato](#3---adição-de-novo-contato)
+  - [4 - Lista de cards](#4---lista-de-cards)
+  - [5 - Card de contato](#5---card-de-contato)
+  - [6 - Deleção de contato](#6---deleção-de-contato)
+  - [7 - Edição de contato](#7---edição-de-contato)
+  - [8 - Estilização](#8---estilização)
+- [Deployment](#deployment)
 
-## Available Scripts
+# Sobre o Projeto 
 
-In the project directory, you can run:
+Nesse projeto, o objetivo era criar uma aplicação que consumisse uma [API com dados sobre contatos](https://github.com/1lucascq/Contacts-bk) abordando os seguintes tópicos:
+ - Construção através do uso de Hooks;
+ - Criação do Front seguindo os conceitos de Mobile First;
+ - Uso de libs para estilização;
+ - Possibilidade de adição de contatos;
+ - Possibilidade de deleção de contatos;
+ - Possiblidade de edição de contatos;
+ - Filtragem de contatos por nome.
 
-### `npm start`
+# Objetivos
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- A realização de todos os objetivos deve ser feita com o uso de Hooks e seguindo as regras do Mobile First.
+- A requisição dos contatos na API retorna um array de objetos com as seguintes chaves: `name: string`, `email: string`, `image: string`, `phoneNumbers: numbers[]`.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 1 - Header
+- Cria um Header para a aplicação contendo:
+  - Um botão para adição de um novo contato;
+  - Uma barra de buscas;
+  - Um título.
 
-### `npm test`
+## 2 - Barra de buscas
+- A Barra de Buscas deve possibilitar a pesquisa de usuários através do nome;
+- A exibição dos contatos deve ser feita concomitantemente ao input realizado pelo usuário.
+  
+## 3 - Adição de novo contato
+- O botão de adição de novo contato deverá abrir uma formulário para adição de novo contato de forma agradável ao usuário;
+- A adição deve refletir no banco de dados usado pelo BackEnd.
+- Ao adicionar um novo contato, um novo fetch deverá ser realizado para pegar novamente os dados do backend.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 4 - Lista de cards
+- Cria um campo que deve receber uma lista de cards com informações dos contatos.
 
-### `npm run build`
+## 5 - Card de contato
+- O Card deve conter:
+  -  Nome, email e telefones do contato;
+  -  A imagem fornecida;
+  -  Um botão para deleção do contato;
+  -  Um botão para edição do contato.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 6 - Deleção de contato
+- O botão de deleção do contato deverá excluir o contato permanentemente;
+- A deleção deve refletir no banco de dados usado pelo BackEnd.
+- Ao deletar um contato, a lista de contatos deve ser atualizada.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 7 - Edição de contato
+- O botão de edição do contato deverá editarr o contato permanentemente;
+- A edição deve refletir no banco de dados usado pelo BackEnd.
+- Ao editar um contato, a lista de contatos deve ser atualizada.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 8 - Estilização
+- Estilizar a aplicação através do uso de alguma biblioteca popular no mercado.
+- A design da aplicação deverá seguir conceitos Mobile First.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Deployment
+- O deploy da aplicação se encontra [AQUI](https://contacts-ft.netlify.app/).
