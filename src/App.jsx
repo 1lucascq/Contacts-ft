@@ -9,7 +9,7 @@ function App() {
       palette: {
         mode: "dark",
       },
-    });
+  });
 
   return (
     <ThemeProvider theme={darkTheme}>

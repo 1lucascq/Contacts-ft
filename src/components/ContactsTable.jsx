@@ -1,6 +1,6 @@
-// Tabela que recebe o ContactsData.jsx para formar a tabela.
-import { Grid } from '@mui/material';
-import React, { useEffect, useContext } from 'react';
+import { Box, useTheme } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import React, { useContext, useEffect } from 'react';
 import PhBookContext from '../context/PhBookContext';
 import ContactCard from './ContactCard';
 
@@ -11,18 +11,15 @@ function ContactsTable() {
     if (newData.shouldRender === true) setNewData({ shouldRender: false });
   }, [newData, setNewData]);
   
+  const theme = useTheme();
+  const isBig = useMediaQuery(theme.breakpoints.up('sm'));
+
   return (
-    <Grid
-      container
-      spacing={2}
-      direction="column"
-      alignItems="center"
-      justifyContent="center"
-      style={{ marginTop: "2em" }}
-    >
+    <Box sx={{ marginTop:[isBig ? '5em' : '3em'] }}>
+
       <ContactCard />
 
-    </Grid>
+    </Box>
   );
 }
 
