@@ -65,9 +65,6 @@ Nesse projeto, o objetivo era criar uma aplicação que consumisse uma [API com 
 
 ## 8 - Estilização
 - Estilizar a aplicação através do uso de alguma biblioteca popular no mercado.
-
-#Deployment
-link: https://contacts-ft.netlify.app/
 - A design da aplicação deverá seguir conceitos Mobile First.
 
 
